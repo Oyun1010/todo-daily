@@ -1,0 +1,36 @@
+@use './variables.scss' as *;
+
+.login {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+  
+}
+
+section {
+    width: max-content;
+    height: max-content;
+    padding: 2rem;
+    z-index: 1;
+
+    .item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        max-width: max-content;
+       
+        padding: 2px 3rem 2px 1rem;
+        margin-bottom: 12px;
+        background-color: #91156a22;
+        border-radius: $border-radius;
+    }
+}

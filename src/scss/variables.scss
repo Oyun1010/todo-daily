@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&display=swap');
+
+$background: #000000;
+$darkpink: #f3415f;
+$pink: #f33b7b;
+$white: #ffffff;
+$font: 'Belanosima', sans-serif;
+$font-size: 18px;
+$border-radius: 1.2rem;
+$rainbow: linear-gradient(90deg, $background, $background),
+    linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+
+$small-screen: 480px;
+$medium-screen: 940px;
+$large-screen: 1024px;
