@@ -6,10 +6,11 @@ $pink: #f33b7b;
 $white: #ffffff;
 $font: 'Belanosima', sans-serif;
 $font-size: 18px;
-$border-radius: 1.2rem;
+$border-radius: 0.7rem;
+$border-color: linear-gradient(172deg, rgba(110, 60, 203, 0), rgba(110, 60, 203, 0.505), rgba(255, 0, 128), rgba(255, 249, 34));
 $rainbow: linear-gradient(90deg, $background, $background),
     linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
 
-$small-screen: 480px;
-$medium-screen: 940px;
-$large-screen: 1024px;
+$small-screen: 850px;
+$medium-screen: 1024px;
+$large-screen: 1900px;

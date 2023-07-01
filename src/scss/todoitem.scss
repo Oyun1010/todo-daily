@@ -1,0 +1,71 @@
+@use './variables.scss' as *;
+
+.todo-item {
+    position: relative;
+    border: 1px solid;
+    margin: 1rem 0 1rem 0;
+    padding: 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid transparent;
+    border-image: $border-color;
+    border-image-slice: 1;
+    padding-left: 6px;
+    display: flex;
+    gap: 6px;
+    min-width: 20vw;
+    height: max-content;
+
+    .check-box {
+        position: relative;
+        top: 28px
+    }
+
+    .datetime {
+        position: absolute;
+        top: -28px;
+        left: 8px;
+    }
+
+    .desc {
+        margin-top: -12px;
+        font-size: 16px;
+        text-align: justify;
+        width: 84%;
+        overflow-wrap: break-word;
+    }
+
+    .btns {
+        display: none;
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        z-index: 10;
+
+        span {
+            background-color: #ffffff22;
+            border-radius: 50%;
+            padding: 8px 8px 4px 8px;
+            margin-left: 6px;
+        }
+
+    }
+
+}
+
+.todo-item:hover {
+    div {
+        display: block;
+    }
+}
+@media (max-width: $medium-screen) {
+
+    .todo-item {
+       .desc {
+        width: 100%;
+       
+       }
+    }
+
+   
+
+}

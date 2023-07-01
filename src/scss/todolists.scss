@@ -1,0 +1,128 @@
+@use './variables.scss' as *;
+
+:root {
+    --title-size: 1.5vw;
+    --subtitle-size: 1.2vw;
+}
+
+.todo-section {
+    width: 98%;
+    margin: 0;
+    padding: 12px;
+    display: flex;
+    justify-content: start;
+    gap: 12px;
+
+    .card::-webkit-scrollbar {
+        width: 4px;
+
+
+    }
+
+    .card::-webkit-scrollbar-track {
+        margin: 8px;
+        margin-right: -5px;
+        border-radius: $border-radius;
+        box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
+    }
+
+    .card::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+    }
+
+    .card {
+        width: 32%;
+        background-color: #ffffff05;
+        border-radius: $border-radius;
+        padding: 12px;
+        height: 78vh;
+        overflow-y: scroll;
+
+        .head,
+        .title {
+            height: fit-content;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .head {
+            height: 2rem;
+            margin-bottom: 0.5em;
+        }
+
+        .title {
+
+            h1,
+            p {
+                font-size: var(--subtitle-size);
+
+            }
+
+        }
+
+
+    }
+}
+
+.td-items {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+
+    .td-item {
+        width: max-content;
+        height: max-content;
+        background-color: #ffffff15;
+        border-radius: $border-radius;
+        padding: 0.5rem 1rem 0 1rem;
+
+        .todo-item {
+            width: 358px;
+        }
+    }
+}
+
+@media (max-width: $medium-screen) {
+    .todo-section {
+        width: 98%;
+        margin: 0;
+        padding: 12px;
+        display: flex;
+        justify-content: start;
+        gap: 12px;
+
+        .card {
+            height: max-content;
+           
+        }
+    }
+
+}
+
+@media (max-width: $small-screen) {
+
+    .todo-section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        margin-top: -35px;
+
+        .card {
+            width: 90%;
+
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+
+    aside {
+        display: none;
+    }
+
+}

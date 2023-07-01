@@ -1,25 +1,38 @@
 import React from "react";
-import login_gif from '../gif/login.gif';
 import { LoginItem } from "../components/LoginItem";
 import bg from '../images/home-bg-1.jpg';
-import google from '../images/google.png';
-import github from '../images/github.png';
 import '../scss/login.scss';
 import { Link } from "react-router-dom";
-
-
+import { login } from "../data/api";
+import { ToastContainer } from "react-toastify";
+import { toastMessage } from "../components/Toast";
+import { Logo } from "../components/Logo";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
+
+    const navigate = useNavigate();
     return (
         <main className="login">
+            <ToastContainer />
             <img src={bg} className="background" alt="bg" />
             <section>
+                <Logo />
                 <h1>Sign in</h1>
-                <LoginItem icon_src={google} text={"Google"} />
-                <LoginItem icon_src={github} text={"Github"} />
+                <LoginItem
+                    googleSuccess={credentialResponse => {
+                        login(credentialResponse.credential).then((val) => {
+                            console.log("hah", val);
+                            if (val === "logged") {
+                                toastMessage('🦄 Login Success!');
+                                navigate("/home");
+                            }
+                            else toastMessage('🦄 Incorrect username or email.!');
+                        })
+                    }}
+                    githubSuccess={response => console.log(response)}
+                />
 
-                <div>
-                    <p>Not have account ? <b><Link to="/register">Signup</Link></b></p>
-                </div>
+                <span>Not have account ? <Link to="/register">Signup</Link></span>
             </section>
         </main>
     )

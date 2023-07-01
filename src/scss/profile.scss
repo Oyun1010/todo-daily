@@ -1,0 +1,96 @@
+@use './variables.scss' as *;
+
+#profile {
+    width: 100%;
+    height: 100vh;
+
+    .background {
+        margin-top: 3.6rem;
+        background-color: #ffffff15;
+    }
+
+    h1 {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .profile-body {
+        position: relative;
+        top: 1rem;
+        display: flex;
+      
+        justify-content: center;
+      
+
+    }
+
+    .avatar {
+        position: relative;
+        width: max-content;
+        height: max-content;
+        display: flex;
+        justify-content: center;
+
+        img {
+            border-radius: 50%;
+        }
+
+        .camera-icon {
+            background-color: #ffffff54;
+            border-radius: $border-radius;
+            position: absolute;
+            bottom: 0.5vw;
+            right: 0.5vw;
+        }
+    }
+
+    .line {
+        height: 1px;
+        background-image: linear-gradient(to right, $background, $darkpink, $background);
+        //    background-image: $rainbow;
+
+    }
+
+    .section {
+        width: 20vw;
+        padding: 3rem 1rem 2rem 1rem;
+        background-color: #232323b4;
+        border-radius: $border-radius;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .input-field {
+            width: 100%;
+
+            textarea {
+                width: 85%;
+                height: 30px;
+            }
+        }
+
+        .input-field:nth-child(3) {
+            textarea {
+                min-height: 30px;
+
+            }
+
+        }
+
+        .btns {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+
+            .cancel-btn {
+                background-color: #ffffff1c;
+                background-image: none;
+            }
+        }
+
+
+    }
+}

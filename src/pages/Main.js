@@ -13,7 +13,7 @@ import '../scss/main.scss';
 export const Item = ({ icon_src, text }) => {
     return (
         <div className="icon-item">
-            <img src={icon_src} width={200} height={125} className="circle-imgd" />
+            <img src={icon_src} alt="icon" width={200} height={125} className="circle-imgd" />
             <p>{text}</p>
         </div>
     )
@@ -21,10 +21,10 @@ export const Item = ({ icon_src, text }) => {
 const Home = () => {
     const text = "Don't let your day doing nothing";
     const characters = text.split('');
-    const degree = 250 / characters.length;
+
 
     return (
-        <main>
+        <main id="main">
             <header className="header">
                 <div className="logo">
                     <p>Todo Daily</p>
@@ -58,7 +58,7 @@ const Home = () => {
                                     style={{
                                         top: i * 5 + "px",
 
-                                        // transformOrigin: `70px ${180}px 70px`,
+
                                     }}
                                 >
                                     {char}

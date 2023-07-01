@@ -1,4 +1,6 @@
 @use './variables.scss' as *;
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 
 html,
 body {
@@ -10,34 +12,196 @@ body {
 
 }
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // line-height: 0;
+    margin: 0;
+    padding: 0;
+    gap: 2px;
+    height: 50px;
+
+    p {
+        height: 40px;
+        font-size: 28px;
+        font-weight: bold;
+        font-family: 'Kaushan Script', cursive;
+    }
+}
+
 .header {
-    width: 90%;
-    z-index: 9999;
+    margin-left: auto;
+    margin-right: auto;
+    width: 97%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 10px 0;
 
-    .mid {
+    .logo {
+        width: 200px;
 
-        margin-left: 12px;
-        width: 20vw;
+        a {
+            font-family: 'Belanosima', sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+        }
 
-        span {
-            width: 150px;
-            margin-left: 12px;
-            padding: 10px 1.5rem 10px 1.5rem;
-            background: transparent;
+
+    }
+
+    .home-item {
+        background-color: #ffffff1c;
+        border-radius: $border-radius;
+        padding: 8px 1.5rem 8px 1.5rem;
+    }
+
+    .action {
+        width: max-content;
+        // margin-right: 2.5vw;
+        height: max-content;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        line-height: 0;
+        z-index: 9999;
+
+        .pro {
+            display: flex;
+            align-items: center;
+            padding: 4px 16px 4px 12px;
+            gap: 12px;
+            border-radius: $border-radius;
+            background-color: #ffffff15;
+
+            img {
+                border-radius: 50%;
+            }
+        }
+
+        .logout-icon {
+            width: 44px;
+            height: 44px;
+            background-color: #ffffff15;
+            border-radius: $border-radius;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logout-icon:hover,
+        .pro:hover {
+
             background-image: $rainbow;
             background-clip: padding-box, border-box;
             background-origin: border-box;
             border: 1px solid transparent;
-            border-radius: $border-radius;
         }
 
-        span:hover {
-            background-image: linear-gradient(#ffff00, #f4877744);
+
+        // .dropdown {
+        //     position: absolute;
+        //     top: 3rem;
+        //     right: 3vw;
+        //     z-index: 4;
+        //     border-radius: $border-radius;
+        //     background-color: $background;
+        //     display: none;
+        //     height: max-content;
+
+        //     .dropdown-list {
+        //         margin-top: 8px;
+        //         border-radius: $border-radius;
+        //         background-color: #ffffff1c;
+        //         padding: 4px 12px 4px 12px;
+        //     }
+
+        //     .dropdown-list-item {
+
+        //         width: 140px;
+        //         padding: 1rem 8px 1rem 8px;
+        //         border-bottom: 0.1ch solid;
+        //         border-image: $border-color;
+        //         border-image-slice: 1;
+        //     }
+
+        //     .dropdown-list-item:last-child {
+        //         border: none;
+        //     }
+
+        //     .dropdown-list-item>* {
+        //         color: white;
+        //         text-decoration: none;
+        //     }
+        // }
+    }
+
+
+
+
+
+    // .action:hover {
+
+    //     .dropdown,
+    //     .dropdown:hover {
+    //         display: block;
+    //     }
+
+    // }
+}
+
+.input-field {
+    .label {
+        line-height: 0;
+    }
+
+    textarea {
+        overflow-y: hidden;
+        color: white;
+        margin-left: 12px;
+        padding: 12px 12px 0px 12px;
+        width: 92%;
+        max-width: 92%;
+        height: 30px;
+        max-height: 30px;
+        background-color: #21202187;
+        border: none;
+        border-bottom: 1px solid;
+        border-image: $border-color;
+        border-image-slice: 1;
+        text-align: justify;
+
+    }
+
+    textarea:focus {
+        outline: none;
+    }
+}
+
+@media (max-width: $small-screen) {
+
+    .pro {
+
+        width: 25px;
+        height: 36px;
+        padding: 0;
+
+        img {
+            width: 30px;
+            height: 30px;
         }
+
+        p {
+            display: none;
+        }
+
     }
-    .action {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
+
 }
