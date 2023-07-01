@@ -15,12 +15,12 @@
 
 
     .icons {
-        animation: rotation 50s linear infinte;
+        animation: rotation 150s linear infinte;
     }
 
     .icon {
         position: absolute;
-        animation: rotation 50s linear infinte;
+        animation: rotation 150s linear infinte;
     }
 
 }
@@ -91,12 +91,10 @@
 
             .dropdown-list {
 
-
                 z-index: 100;
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                margin-top: 8px;
                 border-radius: $border-radius;
                 background-color: #000000;
                 padding: 4px 12px 4px 12px;

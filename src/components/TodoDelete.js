@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Modal from 'react-modal';
-import { InputField } from "./InputField";
 import { MdOutlineClose } from "react-icons/md";
 
 import '../scss/deletemodal.scss';

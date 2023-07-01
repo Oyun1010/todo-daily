@@ -25,7 +25,7 @@ export const Header = () => {
             <span className="logout-icon"
                onClick={() => {
                   logout();
-                  navigate("/main");
+                  navigate("/");
 
                }}><IoMdLogOut size={24} /></span>
             {/* <div className="dropdown">

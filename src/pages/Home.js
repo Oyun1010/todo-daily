@@ -1,16 +1,18 @@
 import React from "react";
 import { useState } from "react";
-
-import '../scss/home.scss';
-import '../scss/styles.scss';
 import { TodoLists } from "../components/TodoLists";
 import todo_img from '../images/todo_list.png';
 import { MdFilterList } from "react-icons/md";
 import { TodoEdit } from "../components/TodoEdit";
-import { TodoItems } from "../components/TodoItems";
 import { AsideItem } from "../components/AsideItem";
 import { Header } from "../components/Header";
 import { Background } from "../components/Background";
+import todoy_icon from "../images/today.png";
+import yesterday_icon from "../images/yesterday.png";
+import upcoming_icon from "../images/upcoming.png";
+
+import '../scss/home.scss';
+import '../scss/styles.scss';
 // import '../scss/home-bg.scss';
 
 
@@ -34,10 +36,14 @@ const Home = () => {
                         </div>
 
                         <div className="dropdown-list">
-                            <span className="dropdown-list-item">All</span>
-                            <span className="dropdown-list-item">Today</span>
-                            <span className="dropdown-list-item">Yesterday</span>
-                            <span className="dropdown-list-item">Upcoming</span>
+                            {
+                                ["All", "Today", "Yesterday", "Upcoming"].map((e, i) => {
+                                    return <span className="dropdown-list-item" key={i} onClick={() => { setFilter(e); }}>
+                                        {e}
+                                    </span>
+                                })
+                            }
+
                         </div>
                     </span>
                     <div className="nav">
@@ -66,9 +72,9 @@ const Home = () => {
 
                 <aside>
                     <img src={todo_img} alt="img" width={250} />
-                    <AsideItem name={"Today"} />
-                    <AsideItem name={"Yesterday"} />
-                    <AsideItem name={"Upcoming"} />
+                    <AsideItem name={"Today"} icon={todoy_icon} />
+                    <AsideItem name={"Yesterday"} icon={yesterday_icon} />
+                    <AsideItem name={"Upcoming"} icon={upcoming_icon} />
 
                 </aside>
             </main>

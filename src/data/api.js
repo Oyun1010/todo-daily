@@ -89,6 +89,14 @@ export const getUserData = async () => {
 
     }
 }
+export const updateUserData = async (name, profile_pic, user_name) => {
+    console.log(name, user_name, profile_pic);
+    await post("update_user", {
+        name: name,
+        profile_pic: profile_pic,
+        user_name: user_name,
+    });
+}
 
 export const getTodolists = async () => {
     try {

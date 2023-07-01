@@ -22,6 +22,7 @@ a {
     align-items: center;
     justify-content: center;
     // line-height: 0;
+    cursor: pointer;
     margin: 0;
     padding: 0;
     gap: 2px;
@@ -162,11 +163,10 @@ a {
         line-height: 0;
     }
 
-    textarea {
-        overflow-y: hidden;
+    textarea,
+    input {
         color: white;
         margin-left: 12px;
-        padding: 12px 12px 0px 12px;
         width: 92%;
         max-width: 92%;
         height: 30px;
@@ -180,7 +180,21 @@ a {
 
     }
 
-    textarea:focus {
+    input {
+        color-scheme: dark;
+
+        padding: 6px 12px 6px 12px;
+
+    }
+
+    textarea {
+        padding: 12px 12px 0px 12px;
+        overflow-y: hidden;
+
+    }
+
+    textarea:focus,
+    input:focus {
         outline: none;
     }
 }

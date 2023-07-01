@@ -1,10 +1,8 @@
-import React, { useState } from "react";
-
+import React from "react";
 import { TodoItem } from "./TodoItem";
 import '../scss/todolists.scss';
-import { updateTodo } from "../data/api";
-export const TodoCard = ({ title, data }) => {
 
+export const TodoCard = ({ title, data }) => {
    
     return (
         <div className="card">

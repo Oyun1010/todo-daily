@@ -5,7 +5,7 @@ export const InputField = ({ label, type, placeHolder, value, changed }) => {
     return (
         <div className="input-field">
             <p className="label">{label}</p>
-            <textarea type={type} placeholder={placeHolder} value={value} onChange={changed} />
+            <input type={type} placeholder={placeHolder} value={value} onChange={changed} />
         </div>
     )
 }

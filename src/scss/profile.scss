@@ -7,6 +7,7 @@
     .background {
         margin-top: 3.6rem;
         background-color: #ffffff15;
+       
     }
 
     h1 {
@@ -20,8 +21,9 @@
         top: 1rem;
         display: flex;
       
+
         justify-content: center;
-      
+
 
     }
 
@@ -53,7 +55,7 @@
     }
 
     .section {
-        width: 20vw;
+        width: 280px;
         padding: 3rem 1rem 2rem 1rem;
         background-color: #232323b4;
         border-radius: $border-radius;
@@ -79,6 +81,19 @@
 
         }
 
+        .btns>* {
+            width: 250px;
+            height: 35px;
+            margin-top: 1.5rem;
+            border-radius: $border-radius;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            border: 1px solid #ffffff15;
+
+
+        }
+
         .btns {
             width: 100%;
             display: flex;
@@ -89,7 +104,20 @@
                 background-color: #ffffff1c;
                 background-image: none;
             }
+
+            .apply-btn {
+                background: transparent;
+                background-image: $rainbow;
+                background-clip: padding-box, border-box;
+                background-origin: border-box;
+                border: 1px solid transparent;
+            }
         }
+        .btns>*:hover {
+            background-image: linear-gradient($darkpink, $pink);
+        }
+
+
 
 
     }

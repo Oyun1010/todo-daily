@@ -5,12 +5,47 @@
     --subtitle-size: 1.2vw;
 }
 
+.empty-item {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 87vh;
+
+    div {
+        margin-top: -4rem;
+        height: 20px;
+        width: 500px;
+        opacity: 0.2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            width: 550px;
+            height: 560px;
+        }
+
+    }
+
+    p {
+        width: 500px;
+        margin-top: -28px;
+        height: max-content;
+        line-height: 0;
+        font-size: 3rem;
+        text-align: center;
+        overflow-wrap: break-word;
+        font-weight: bold;
+    }
+}
+
 .todo-section {
     width: 98%;
     margin: 0;
     padding: 12px;
     display: flex;
     justify-content: start;
+    min-height: 82vh;
     gap: 12px;
 
     .card::-webkit-scrollbar {
@@ -98,13 +133,25 @@
 
         .card {
             height: max-content;
-           
+
         }
     }
 
 }
 
 @media (max-width: $small-screen) {
+    .empty-item {
+        div {
+            width: 100%;
+
+            height: max-content;
+        }
+
+        p {
+            width: 100%;
+            line-height: 3rem;
+        }
+    }
 
     .todo-section {
         display: flex;

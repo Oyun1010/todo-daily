@@ -4,17 +4,31 @@ import { getDoingList, getDoneList, getTodolists } from "../data/api";
 import { TodoCard } from "./TodoCard";
 import '../scss/todolists.scss';
 import { TodoItems } from "./TodoItems";
+import em_img from "../gif/login.gif";
+
+const EmptyItem = () => {
+    return (
+        <div className="empty-item">
+            <div>
+                <img src={em_img} alt="img" width={450} height={450} />
+                <p>No result found</p>
+            </div>
+        </div>
+    )
+}
+
 export const TodoLists = ({ filter, isUpdate }) => {
 
     const [data, setData] = useState(null);
-    const [todayData, setTodayData] = useState([]);
-    const [yesterdayData, setYesterdayData] = useState([]);
-    const [upcomingData, setUpcomingData] = useState([]);
+    // let [todayData, setTodayData] = useState([]);
+    // let [yesterdayData, setYesterdayData] = useState([]);
+    // let [upcomingData, setUpcomingData] = useState([]);
 
     let [doingData, setDoingData] = useState([]);
     let [doneData, setDoneData] = useState([]);
 
     const [currentDate, setCurrentDate] = useState();
+
 
     useEffect(() => {
         const now = new Date(Date.now());
@@ -58,7 +72,7 @@ export const TodoLists = ({ filter, isUpdate }) => {
 
 
 
-    }, [filter, !data && data, !doingData && doingData, !doneData && doneData]);
+    }, [filter, data, doingData, doneData]);
     // console.log("data", data);
     // console.log("Today", todayData);
     // console.log("Yesterday", yesterdayData);
@@ -72,10 +86,8 @@ export const TodoLists = ({ filter, isUpdate }) => {
     }
 
     let today = data && data.filter((e) => {
-
         const sd = diff(e.start_date);
         const ed = diff(e.end_date);
-
         console.log("S:: ", sd, "::", ed);
         if (sd === 0 || ed === 0) {
             return e;
@@ -83,21 +95,17 @@ export const TodoLists = ({ filter, isUpdate }) => {
     });
 
     let yesterday = data && data.filter((e) => {
-
         const sd = diff(e.start_date);
         const ed = diff(e.end_date);
-
         console.log("S:: ", sd, "::", ed);
         if (ed >= 1) {
             return e;
         }
+    });
 
-    })
     let upcoming = data && data.filter((e) => {
-
         const sd = diff(e.start_date);
         const ed = diff(e.end_date);
-
         console.log("S:: ", sd, "::", ed);
         if (sd > 1) {
             return e;
@@ -117,10 +125,10 @@ export const TodoLists = ({ filter, isUpdate }) => {
                             <TodoCard title={"Done"} data={doneData} />
                         </>
                         : filter === "Today"
-                            ? <TodoItems data={today} />
+                            ? (today.length === 0 ? <EmptyItem /> : <TodoItems data={today} />)
                             : filter === "Yesterday"
-                                ? <TodoItems data={yesterday} />
-                                : <TodoItems data={upcoming} />
+                                ? (yesterday.length === 0 ? <EmptyItem /> : <TodoItems data={yesterday} />)
+                                : (upcoming.length === 0 ? <EmptyItem /> : <TodoItems data={upcoming} />)
 
 
                 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Modal from 'react-modal';
 import { InputField } from "./InputField";
 import { MdOutlineClose } from "react-icons/md";
@@ -7,17 +7,17 @@ import '../scss/modal.scss';
 
 export const TodoEdit = ({ todo, modalIsOpen, closeModal }) => {
 
-    const [name, setName] = useState("");
-    const [desc, setDesc] = useState("");
-    const [startDate, setStartDate] = useState("");
-    const [endDate, setEndDate] = useState("");
+    const [name, setName] = useState(todo.name);
+    const [desc, setDesc] = useState(todo.desc);
+    const [startDate, setStartDate] = useState();
+    const [endDate, setEndDate] = useState();
 
-    useEffect(() => {
-        if (todo != null) {
-            setName(todo.name);
-            setDesc(todo.desc);
-        }
-    })
+    // useEffect(() => {
+    //     if (todo != null) {
+    //         setName(todo.name);
+    //         setDesc(todo.desc);
+    //     }
+    // })
 
     const clearDate = () => {
         setName("");
@@ -31,7 +31,11 @@ export const TodoEdit = ({ todo, modalIsOpen, closeModal }) => {
             createTodo(name, desc, startDate, endDate);
         }
         else {
-            updateTodo(name, desc, startDate, endDate);
+            todo.name = name;
+            todo.desc = desc;
+            todo.start_date = startDate;
+            todo.end_date = endDate;
+            updateTodo(todo);
         }
         closeModal();
         clearDate();
@@ -56,8 +60,8 @@ export const TodoEdit = ({ todo, modalIsOpen, closeModal }) => {
 
                 <InputField label={"Name"} type={"text"} placeHolder={"Name"} value={name} changed={(e) => setName(e.target.value)} />
                 <InputField label={"Desc"} type={"text"} placeHolder={"description"} value={desc} changed={(e) => setDesc(e.target.value)} />
-                <InputField label={"Start Date"} type={"date-time"} placeHolder={"2023-01-01"} value={startDate} changed={(e) => setStartDate(e.target.value)} />
-                <InputField label={"End Date"} type={"date-time"} placeHolder={"2023-01-01"} value={endDate} changed={(e) => setEndDate(e.target.value)} />
+                <InputField label={"Start Date"} type={"date"} placeHolder={"2023-01-01"} value={startDate} changed={(e) => { setStartDate(e.target.value); console.log(e.target.value) }} />
+                <InputField label={"End Date"} type={"date"} placeHolder={"2023-01-01"} value={endDate} changed={(e) => setEndDate(e.target.value)} />
 
                 <button onClick={handleChange}>{
                     todo != null ? "Update" : "Create"
