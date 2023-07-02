@@ -40,10 +40,9 @@ const Home = () => {
     }, [data]);
 
     let todayData = data && data.filter((e) => {
-        const sdate = new Date(e.start_date).getTime();
-        const edate = new Date(e.end_date).getTime();
-
-        if (sdate >= currentDate && edate < currentDate) {
+        const sdate = new Date(e.start_date).getDay();
+        const edate = new Date(e.end_date).getDay();
+        if (sdate === 0 && edate === 0) {
             return e;
         }
     });
@@ -52,13 +51,14 @@ const Home = () => {
 
         const sdate = new Date(e.start_date).getTime();
         const edate = new Date(e.end_date).getTime();
-        if (edate == null) {
-            if (sdate < currentDate) {
+        const sday = new Date(e.start_date).getDay();
+        const eday = new Date(e.end_date).getDay();
+        // console.log("S: ", sdate, "E:", edate);
+        // console.log("NOW: ", now.getDay());
+        if (sday !== 0 && eday !== 0) {
+            if (edate < currentDate) {
                 return e;
             }
-        }
-        if (edate < currentDate) {
-            return e;
         }
     });
 
@@ -68,6 +68,7 @@ const Home = () => {
         if (sdate > currentDate) {
             return e;
         }
+
 
     });
 

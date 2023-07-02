@@ -74,7 +74,6 @@ export const TodoLists = ({ filter, isUpdate }) => {
 
     let upcoming = data && data.filter((e) => {
         const sdate = new Date(e.start_date).getTime();
-
         if (sdate > currentDate) {
             return e;
         }
