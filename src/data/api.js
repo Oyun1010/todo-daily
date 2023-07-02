@@ -2,7 +2,8 @@ import jwtDecode from 'jwt-decode';
 import jsCookie from 'js-cookie';
 import axios from 'axios';
 
-const URL = "http://localhost:5000/";
+// const URL = "http://localhost:5000/";
+const URL = "https://todo-backend-git-master-oyun0623.vercel.app/";
 
 export const get = async (endpoint) => {
     const token = jsCookie.get("token");
@@ -41,7 +42,7 @@ export const post = async (endpoint, body) => {
 export const login = async (jwtToken) => {
     try {
         let decoded = jwtDecode(jwtToken)
-      
+
         const res = await post('login', { email: decoded.email });
         if (res != null) {
             jsCookie.set("token", res.token, { expires: 1, secure: true, sameSite: 'strict', path: '/' });
@@ -138,13 +139,13 @@ export const createTodo = async (name, desc, startDate, endDate) => {
 }
 
 export const updateTodo = async (todo) => {
-  
+
     await post('update_todo', todo);
 
 }
 
 export const deleteTodo = async (id) => {
-   
+
     await post('delete_todo', {
         todo_id: id,
     })
