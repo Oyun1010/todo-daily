@@ -79,6 +79,7 @@ const Profile = () => {
                             setName(userData.name);
                             setUploadImg(userData.profile_pic);
                             setUserName(userData.userName);
+                            
                         }}>Cancel</button>
                     </div>
                 </div>

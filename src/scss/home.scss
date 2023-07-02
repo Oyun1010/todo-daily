@@ -139,14 +139,15 @@
         .nav {
             padding: 12px 4px 12px 0;
             display: flex;
-            justify-content: end;
+            justify-content: center;
             align-items: center;
             gap: 8px;
             height: 35px;
 
             span {
-
                 text-align: center;
+                display: flex;
+                justify-content: center;
                 width: 80px;
                 padding: 6px 1rem 6px 1rem;
                 border: 1px solid #ffffff22;
@@ -272,11 +273,16 @@
     }
 }
 
-@media (min-width: 860px) {
+@media (min-width: 700px) {
     #home {
         .home-section {
+            .nav {
+                z-index: 1;
+            }
             .nav>* {
-                display: flex;
+                display: flex; 
+                          
+                
             }
             .dropdown {
                 display: none;
@@ -288,6 +294,25 @@
     }
 
 }
+@media (max-width: 700px) {
+    #home {
+        .home-section {
+            .nav {
+                display: none;           
+                
+            }
+            .dropdown {
+                display: flex;
+             
+            }
+            .add-btn {
+                margin-right: 12px;
+            }
+        }
+    }
+
+}
+
 
 @media (min-width: 1080px) {
     #home {

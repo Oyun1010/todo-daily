@@ -4,18 +4,7 @@ import { getDoingList, getDoneList, getTodolists } from "../data/api";
 import { TodoCard } from "./TodoCard";
 import '../scss/todolists.scss';
 import { TodoItems } from "./TodoItems";
-import em_img from "../gif/login.gif";
-
-const EmptyItem = () => {
-    return (
-        <div className="empty-item">
-            <div>
-                <img src={em_img} alt="img" width={450} height={450} />
-                <p>No result found</p>
-            </div>
-        </div>
-    )
-}
+import { EmptyItem } from "./EmptyItem";
 
 export const TodoLists = ({ filter, isUpdate }) => {
 
@@ -24,8 +13,8 @@ export const TodoLists = ({ filter, isUpdate }) => {
     // let [yesterdayData, setYesterdayData] = useState([]);
     // let [upcomingData, setUpcomingData] = useState([]);
 
-    let [doingData, setDoingData] = useState([]);
-    let [doneData, setDoneData] = useState([]);
+    let [doingData, setDoingData] = useState(null);
+    let [doneData, setDoneData] = useState(null);
 
     const [currentDate, setCurrentDate] = useState();
 

@@ -58,10 +58,10 @@ export const TodoEdit = ({ todo, modalIsOpen, closeModal }) => {
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
             contentLabel="Example Modal"
-            className="modal"
+            className="edit-modal"
         >
             <ToastContainer />
-            <div className="main">
+            <div className="edit-main">
                 <div className="head">
                     <span />
                     <h2>Todo</h2>

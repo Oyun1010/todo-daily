@@ -155,7 +155,8 @@
         /* left: 40rem; */
 
         h1 {
-            padding-top: 3.8rem;
+            padding-top: 10vw;
+            height: 150px;
             font-family: 'Amatic SC', cursive;
             font-size: 64px;
             color: antiquewhite;
@@ -211,8 +212,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 60vh;
-        padding-bottom: 10rem;
+        min-height: 8%;
+        padding-bottom: 0rem;
 
         img {
             width: 40vw;

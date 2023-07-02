@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import homebg from '../images/home-bg-1.jpg';
 import home_gif from '../gif/home-gif.gif';
+import gif_0 from '../gif/ani.gif';
 import img_0 from '../images/dazzle-task-management.png';
 import img_1 from '../images/clip-147.png';
 import img_2 from '../images/bonbon-online-meeting-hands-doing-work-tasks-1.png';
@@ -94,7 +95,7 @@ const Home = () => {
             </section>
             <section className="home-section-2">
                 <div>
-                    <img src={img_4} alt="img" />
+                    <img src={gif_0} alt="img" />
                 </div>
                 <div>
                     <h1>Achieve your target and won your life</h1>

@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TodoLists } from "../components/TodoLists";
 import todo_img from '../images/todo_list.png';
 import { MdFilterList } from "react-icons/md";
@@ -10,36 +10,67 @@ import { Background } from "../components/Background";
 import todoy_icon from "../images/today.png";
 import yesterday_icon from "../images/yesterday.png";
 import upcoming_icon from "../images/upcoming.png";
-import { getTodolists, getDoingList, getDoneList } from "../data/api";
+import { getTodolists } from "../data/api";
 import '../scss/home.scss';
 import '../scss/styles.scss';
-// import '../scss/home-bg.scss';
-
 
 const Home = () => {
 
+    const [data, setData] = useState(null);
     const [filter, setFilter] = useState("All");
     const [modalIsOpen, setIsOpen] = useState(false);
-    const [todayData, setTodayData] = useState(null);
-    const [yesterdayData, setYesterdayData] = useState(null);
-    const [upcomingData, setUpcomingData] = useState(null);
-
-    // useEffect(() => {
 
 
-    //     getTodolists().then((e) => {
-    //         setTodayData(e);
-    //     });
-    //     getDoingList().then((e) => {
-    //         setUpcomingData(e);
-    //     });
-    //     getDoneList().then((e) => {
-    //         setYesterdayData(e);
-    //     })
+    const [currentDate, setCurrentDate] = useState();
+
+
+    useEffect(() => {
+        const now = new Date(Date.now());
+
+        setCurrentDate(now.getTime());
+
+        getTodolists().then((e) => {
+            setData(e);
+
+        });
 
 
 
-    // }, [filter, data, doingData, doneData]);
+
+    }, [data]);
+
+    let todayData = data && data.filter((e) => {
+        const sdate = new Date(e.start_date).getTime();
+        const edate = new Date(e.end_date).getTime();
+
+        if (sdate >= currentDate && edate < currentDate) {
+            return e;
+        }
+    });
+
+    let yesterdayData = data && data.filter((e) => {
+
+        const sdate = new Date(e.start_date).getTime();
+        const edate = new Date(e.end_date).getTime();
+        if (edate == null) {
+            if (sdate < currentDate) {
+                return e;
+            }
+        }
+        if (edate < currentDate) {
+            return e;
+        }
+    });
+
+    let upcomingData = data && data.filter((e) => {
+        const sdate = new Date(e.start_date).getTime();
+
+        if (sdate > currentDate) {
+            return e;
+        }
+
+    });
+
     return (
         <>
 
@@ -73,7 +104,9 @@ const Home = () => {
                                     setFilter(e);
                                 }}
                                     style={{
-                                        backgroundImage: e === filter ? "linear-gradient(#f3415f, #f3415f)" : null
+                                        textAlign: "center",
+
+                                        backgroundImage: e === filter ? "linear-gradient(#f3415f, #f33b7b)" : null
                                     }}>{e}</span>
                             })
                         }
