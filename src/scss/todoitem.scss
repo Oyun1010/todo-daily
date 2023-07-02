@@ -16,6 +16,7 @@
     height: max-content;
 
     .check-box {
+        cursor: pointer;
         position: relative;
         top: 28px
     }
@@ -31,6 +32,7 @@
         font-size: 16px;
         text-align: justify;
         width: 84%;
+      
         overflow-wrap: break-word;
     }
 
@@ -61,7 +63,8 @@
 
     .todo-item {
        .desc {
-        width: 100%;
+        width: 96%;
+        padding-right: 6px;
        
        }
     }

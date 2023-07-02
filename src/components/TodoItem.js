@@ -15,13 +15,13 @@ export const TodoItem = ({ e }) => {
 
     return (
         <>
-            <div className="todo-item" onClick={() => {
-                setIsDone(!isDone);
-                e.is_done = !e.is_done;
-                updateTodo(e);
-            }}>
+            <div className="todo-item" >
 
-                <span className="check-box">
+                <span className="check-box" onClick={() => {
+                    setIsDone(!isDone);
+                    e.is_done = !e.is_done;
+                    updateTodo(e);
+                }}>
                     {
                         isDone
                             ? <MdOutlineCheckBox />
