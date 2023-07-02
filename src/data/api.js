@@ -6,7 +6,6 @@ const URL = "http://localhost:5000/";
 
 export const get = async (endpoint) => {
     const token = jsCookie.get("token");
-    console.log("")
     const config = {
         headers: {
             "Authorization": `Bearer ${token}`,
@@ -32,7 +31,6 @@ export const post = async (endpoint, body) => {
             }
         }
         const res = await axios.post(`${URL}${endpoint}`, { ...body }, config);
-        console.log(res.data)
         return res.data;
 
     } catch (error) {
@@ -43,8 +41,7 @@ export const post = async (endpoint, body) => {
 export const login = async (jwtToken) => {
     try {
         let decoded = jwtDecode(jwtToken)
-        console.log("---------------------------");
-        console.log(decoded.email);
+      
         const res = await post('login', { email: decoded.email });
         if (res != null) {
             jsCookie.set("token", res.token, { expires: 1, secure: true, sameSite: 'strict', path: '/' });
@@ -90,7 +87,6 @@ export const getUserData = async () => {
     }
 }
 export const updateUserData = async (name, profile_pic, user_name) => {
-    console.log(name, user_name, profile_pic);
     await post("update_user", {
         name: name,
         profile_pic: profile_pic,
@@ -142,13 +138,13 @@ export const createTodo = async (name, desc, startDate, endDate) => {
 }
 
 export const updateTodo = async (todo) => {
-    console.log(todo);
+  
     await post('update_todo', todo);
 
 }
 
 export const deleteTodo = async (id) => {
-    console.log(id);
+   
     await post('delete_todo', {
         todo_id: id,
     })

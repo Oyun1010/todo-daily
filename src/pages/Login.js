@@ -21,7 +21,6 @@ const Login = () => {
                 <LoginItem
                     googleSuccess={credentialResponse => {
                         login(credentialResponse.credential).then((val) => {
-                            console.log("hah", val);
                             if (val === "logged") {
                                 toastMessage('🦄 Login Success!');
                                 navigate("/home");

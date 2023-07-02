@@ -23,8 +23,7 @@ const Register = () => {
                     {/* <LoginItem icon_src={github} text={"Github"} /> */}
                     <LoginItem
                         googleSuccess={credentialResponse => {
-                            console.log(credentialResponse);
-                            console.log(credentialResponse.credential);
+                           
                             register(credentialResponse.credential).then((val) => {
                                 console.log("------------", val);
                                 if (val === "logged") {
