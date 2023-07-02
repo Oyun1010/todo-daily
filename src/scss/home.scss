@@ -272,6 +272,23 @@
     }
 }
 
+@media (min-width: 860px) {
+    #home {
+        .home-section {
+            .nav>* {
+                display: flex;
+            }
+            .dropdown {
+                display: none;
+            }
+            .add-btn {
+                margin-right: 0;
+            }
+        }
+    }
+
+}
+
 @media (min-width: 1080px) {
     #home {
         overflow: hidden;
@@ -282,9 +299,7 @@
             .dropdown {
                 display: none;
 
-                
             }
-
 
             .add-btn {
                 margin-right: 0;

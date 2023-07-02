@@ -6,9 +6,10 @@ import { ToastContainer } from "react-toastify";
 import { register } from "../data/api";
 import { toastMessage } from "../components/Toast";
 import { Logo } from "../components/Logo";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-
+    const navigate = useNavigate();
     return (
         <>
             <ToastContainer
@@ -23,13 +24,13 @@ const Register = () => {
                     {/* <LoginItem icon_src={github} text={"Github"} /> */}
                     <LoginItem
                         googleSuccess={credentialResponse => {
-                           
+
                             register(credentialResponse.credential).then((val) => {
                                 console.log("------------", val);
                                 if (val === "logged") {
                                     toastMessage('🦄 Signup successful!');
-                                    
-                                    <Link to="/home" />
+                                    navigate('/home');
+
                                 }
                                 else {
                                     toastMessage("🦄 Email is already used.");
