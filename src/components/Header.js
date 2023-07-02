@@ -7,7 +7,7 @@ import { logout } from "../data/api";
 import { useNavigate } from "react-router-dom";
 import { getUserData } from "../data/api";
 
-export const Header = () => {
+export const Header = ({ href }) => {
 
    const navigate = useNavigate();
    const [userData, setUserData] = useState(null);
@@ -22,7 +22,7 @@ export const Header = () => {
    }, []);
    return (
       <header className="header">
-         <Logo />
+         <Logo href={true} />
          {/* <div className="home-item">Home</div> */}
          <div className="action">
             <Link to="/profile">

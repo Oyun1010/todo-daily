@@ -11,9 +11,9 @@ export const TodoCard = ({ title, data }) => {
                 <h1>{title}</h1>
                 <p>{data && data.length}</p>
             </div>
-            {
+            {/* {
                 !data && <EmptyItem />
-            }
+            } */}
             {
                 data && data.map((e, i) => {
                     return (
