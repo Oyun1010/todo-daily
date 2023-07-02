@@ -132,7 +132,7 @@ export const createTodo = async (name, desc, startDate, endDate) => {
             name: name,
             desc: desc,
             start_date: startDate,
-            end_data: endDate,
+            end_date: endDate,
         });
         return res;
     } catch (error) {

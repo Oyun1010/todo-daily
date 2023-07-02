@@ -1,6 +1,5 @@
 import React from "react";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
-import GitHubLogin from "react-github-login";
 import '../scss/login.scss';
 
 export const LoginItem = ({ googleSuccess, githubSuccess, text }) => {
@@ -22,14 +21,14 @@ export const LoginItem = ({ googleSuccess, githubSuccess, text }) => {
                     }} />
                 {/* <LoginItem icon_src={google} text={"Google"} /> */}
             </GoogleOAuthProvider>
-            <div style={{
+            {/* <div style={{
                 height: "15px"
-            }}></div>
-            <GitHubLogin
+            }}></div> */}
+            {/* <GitHubLogin
                 clientId="c769e9594654e33dc3b6"
                 onSuccess={githubSuccess}
                 onFailure={response => console.error(response)}
-            />,
+            />, */}
         </div>
     )
 }

@@ -7,28 +7,27 @@ import img_1 from '../images/clip-147.png';
 import img_2 from '../images/bonbon-online-meeting-hands-doing-work-tasks-1.png';
 import img_3 from '../images/quirky-refresh-symbol-1.png';
 import img_4 from '../images/dazzle-task-management.png';
+import { Logo } from "../components/Logo";
 import '../scss/main.scss';
 
 
 export const Item = ({ icon_src, text }) => {
     return (
         <div className="icon-item">
-            <img src={icon_src} alt="icon" width={200} height={125} className="circle-imgd" />
+            <img src={icon_src} alt="icon" width={100} height={85} className="circle-imgd" />
             <p>{text}</p>
         </div>
     )
 }
 const Home = () => {
-    const text = "Don't let your day doing nothing";
-    const characters = text.split('');
+    // const text = "Don't let your day doing nothing";
+    // const characters = text.split('');
 
 
     return (
         <main id="main">
             <header className="header">
-                <div className="logo">
-                    <p>Todo Daily</p>
-                </div>
+                <Logo />
                 <div className="links">
                     <span><Link to="/login">Sign in</Link></span>
                     <span><Link to="/register">Sing up</Link></span>
@@ -39,7 +38,7 @@ const Home = () => {
                 <img src={homebg} alt="home-bg" className="home-bg" />
                 <div className="contain">
                     <h1>Organizing your day activity with Todo Daily</h1>
-                    <button>Get started</button>
+                    <button><Link to="/login">Get started</Link></button>
                     <div className="home-gif">
                         <img src={home_gif} alt="home-bg" />
                     </div>
@@ -49,7 +48,8 @@ const Home = () => {
             <section className="home-section-1">
 
                 <h1>
-                    {characters.map((char, i) => {
+                    Don't let yout day doing nothing
+                    {/* {characters.map((char, i) => {
                         if (i < characters.length / 2) {
                             return (
                                 <span
@@ -82,7 +82,7 @@ const Home = () => {
                             )
                         }
 
-                    })}
+                    })} */}
                 </h1>
                 <div className="contain-items">
                     <Item icon_src={img_0} text={"Small task"} />
@@ -98,7 +98,7 @@ const Home = () => {
                 </div>
                 <div>
                     <h1>Achieve your target and won your life</h1>
-                    <button>Get started</button>
+                    <button><Link to="/login">Get started</Link></button>
                 </div>
             </section>
         </main>

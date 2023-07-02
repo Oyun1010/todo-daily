@@ -42,10 +42,11 @@ const Profile = () => {
             <Header />
             <Background />
 
-            <h1>Profile</h1>
+
             <div className="profile-body">
 
                 <div className="section">
+                    <h1>Profile</h1>
                     <div className="avatar">
                         <img src={uploadImg} width={150} height={150} alt="profile" />
                         <ImageUploader
@@ -63,7 +64,7 @@ const Profile = () => {
                             onFileAdded={(img) => getImageFileObject(img)}
                             onFileRemoved={(img) => runAfterImageDelete(img)}
                             deleteIcon={<></>}
-                            uploadIcon={<IoIosCamera size={35}/>}
+                            uploadIcon={<IoIosCamera size={35} />}
                         />
 
                     </div>

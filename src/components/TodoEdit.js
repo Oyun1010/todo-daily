@@ -3,12 +3,14 @@ import Modal from 'react-modal';
 import { InputField } from "./InputField";
 import { MdOutlineClose } from "react-icons/md";
 import { createTodo, updateTodo } from "../data/api";
+import { ToastContainer } from "react-toastify";
 import '../scss/modal.scss';
+import { toastMessage } from "./Toast";
 
 export const TodoEdit = ({ todo, modalIsOpen, closeModal }) => {
 
-    const [name, setName] = useState(todo.name);
-    const [desc, setDesc] = useState(todo.desc);
+    const [name, setName] = useState(todo ? todo.name : "");
+    const [desc, setDesc] = useState(todo ? todo.desc : "");
     const [startDate, setStartDate] = useState();
     const [endDate, setEndDate] = useState();
 
@@ -28,7 +30,16 @@ export const TodoEdit = ({ todo, modalIsOpen, closeModal }) => {
 
     const handleChange = () => {
         if (todo == null) {
-            createTodo(name, desc, startDate, endDate);
+            if (name && desc && startDate && endDate) {
+                toastMessage("🤩 Successful");
+                closeModal();
+                clearDate();
+                createTodo(name, desc, startDate, endDate);
+            }
+            else {
+                toastMessage("😐 Please fill in the required field.");
+            }
+
         }
         else {
             todo.name = name;
@@ -36,9 +47,10 @@ export const TodoEdit = ({ todo, modalIsOpen, closeModal }) => {
             todo.start_date = startDate;
             todo.end_date = endDate;
             updateTodo(todo);
+            closeModal();
+            clearDate();
         }
-        closeModal();
-        clearDate();
+
     }
 
     return (
@@ -48,6 +60,7 @@ export const TodoEdit = ({ todo, modalIsOpen, closeModal }) => {
             contentLabel="Example Modal"
             className="modal"
         >
+            <ToastContainer />
             <div className="main">
                 <div className="head">
                     <span />

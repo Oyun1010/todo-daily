@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import '../scss/styles.scss';
 import { IoMdLogOut } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
 import { logout } from "../data/api";
 import { useNavigate } from "react-router-dom";
+import { getUserData } from "../data/api";
 
 export const Header = () => {
 
    const navigate = useNavigate();
+   const [userData, setUserData] = useState(null);
+   useEffect(() => {
+      getUserData().then((data) => {
+         setUserData(data);
 
+      });
+
+
+
+   }, []);
    return (
       <header className="header">
          <Logo />
@@ -17,8 +27,14 @@ export const Header = () => {
          <div className="action">
             <Link to="/profile">
                <span className="pro">
-                  <img src="https://www.w3schools.com/w3images/avatar2.png" alt="pro" width={35} height={35} />
-                  <p>Oyunsuren</p>
+                  {
+                     userData &&
+                     <>
+                        <img src={userData.profile_pic} alt="pro" width={35} height={35} />
+                        <p>{userData.name}</p>
+                     </>
+                  }
+
                </span>
             </Link>
 

@@ -32,35 +32,11 @@ export const TodoLists = ({ filter, isUpdate }) => {
 
     useEffect(() => {
         const now = new Date(Date.now());
-        now.setHours(0, 0, 0, 0);
-        setCurrentDate(now);
+
+        setCurrentDate(now.getTime());
 
         getTodolists().then((e) => {
             setData(e);
-
-            // for (let i = 0; i < e.length; i++) {
-            //     console.log("Now: ", currentDate);
-
-            //     let startDate = new Date(e[i].start_date.substring(0, 10));
-            //     let endDate = new Date(e[i].end_date.substring(0, 10));
-            //     startDate.setHours(0, 0, 0, 0);
-            //     endDate.setHours(0, 0, 0, 0);
-
-
-            //     const difference_s = Math.abs(currentDate - startDate) / (1000 * 60 * 60 * 24);
-            //     const difference_e = Math.abs(currentDate - endDate) / (1000 * 60 * 60 * 24);
-
-            //     console.log("data[i].start_date: ", difference_s, difference_e);
-            //     if (difference_s === 0 || difference_e === 0) {
-            //         setTodayData(prevArray => [...prevArray, e[i]]);
-            //     }
-            //     else if (difference_e >= 1) {
-            //         setYesterdayData(prevArray => [...prevArray, e[i]]);
-            //     }
-            //     else if (difference_s > 0) {
-            //         setUpcomingData(prevArray => [...prevArray, e[i]]);
-            //     }
-            // }
 
         });
         getDoingList().then((e) => {
@@ -72,48 +48,42 @@ export const TodoLists = ({ filter, isUpdate }) => {
 
 
 
-    }, [filter, data, doingData, doneData]);
-    // console.log("data", data);
-    // console.log("Today", todayData);
-    // console.log("Yesterday", yesterdayData);
-    // console.log("Upcoming", upcomingData);
-    const diff = (date) => {
-        let dd = new Date(date.substring(0, 10));
+    }, [filter, data]);
 
-        dd.setHours(0, 0, 0, 0);
-        const difference = Math.abs(currentDate - dd) / (1000 * 60 * 60 * 24);
-        return difference;
-    }
 
     let today = data && data.filter((e) => {
-        const sd = diff(e.start_date);
-        const ed = diff(e.end_date);
-        console.log("S:: ", sd, "::", ed);
-        if (sd === 0 || ed === 0) {
+        const sdate = new Date(e.start_date).getTime();
+        const edate = new Date(e.end_date).getTime();
+
+        if (sdate >= currentDate && edate < currentDate) {
             return e;
         }
     });
 
     let yesterday = data && data.filter((e) => {
-        const sd = diff(e.start_date);
-        const ed = diff(e.end_date);
-        console.log("S:: ", sd, "::", ed);
-        if (ed >= 1) {
+
+        const sdate = new Date(e.start_date).getTime();
+        const edate = new Date(e.end_date).getTime();
+        if (edate == null) {
+            if (sdate < currentDate) {
+                return e;
+            }
+        }
+        if (edate < currentDate) {
             return e;
         }
     });
 
     let upcoming = data && data.filter((e) => {
-        const sd = diff(e.start_date);
-        const ed = diff(e.end_date);
-        console.log("S:: ", sd, "::", ed);
-        if (sd > 1) {
+        const sdate = new Date(e.start_date).getTime();
+
+        if (sdate > currentDate) {
             return e;
         }
 
     })
 
-    console.log("TT", today);
+
     return (
         <>
             <section className="todo-section">

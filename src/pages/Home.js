@@ -10,7 +10,7 @@ import { Background } from "../components/Background";
 import todoy_icon from "../images/today.png";
 import yesterday_icon from "../images/yesterday.png";
 import upcoming_icon from "../images/upcoming.png";
-
+import { getTodolists, getDoingList, getDoneList } from "../data/api";
 import '../scss/home.scss';
 import '../scss/styles.scss';
 // import '../scss/home-bg.scss';
@@ -20,7 +20,26 @@ const Home = () => {
 
     const [filter, setFilter] = useState("All");
     const [modalIsOpen, setIsOpen] = useState(false);
+    const [todayData, setTodayData] = useState(null);
+    const [yesterdayData, setYesterdayData] = useState(null);
+    const [upcomingData, setUpcomingData] = useState(null);
 
+    // useEffect(() => {
+
+
+    //     getTodolists().then((e) => {
+    //         setTodayData(e);
+    //     });
+    //     getDoingList().then((e) => {
+    //         setUpcomingData(e);
+    //     });
+    //     getDoneList().then((e) => {
+    //         setYesterdayData(e);
+    //     })
+
+
+
+    // }, [filter, data, doingData, doneData]);
     return (
         <>
 
@@ -72,9 +91,9 @@ const Home = () => {
 
                 <aside>
                     <img src={todo_img} alt="img" width={250} />
-                    <AsideItem name={"Today"} icon={todoy_icon} />
-                    <AsideItem name={"Yesterday"} icon={yesterday_icon} />
-                    <AsideItem name={"Upcoming"} icon={upcoming_icon} />
+                    <AsideItem name={"Today"} icon={todoy_icon} count={todayData ? todayData.length : 0} />
+                    <AsideItem name={"Yesterday"} icon={yesterday_icon} count={yesterdayData ? yesterdayData.length : 0} />
+                    <AsideItem name={"Upcoming"} icon={upcoming_icon} count={upcomingData ? upcomingData.length : 0} />
 
                 </aside>
             </main>

@@ -58,7 +58,7 @@
             font-weight: bold;
             font-size: 20px;
             border: 1px solid transparent;
-            margin-right: 0px;
+            margin-right: 12px;
             // background-image: linear-gradient($darkpink, $pink);
             border-radius: $border-radius;
             padding: 6px 1.5rem 6px 1.5rem;
@@ -75,7 +75,7 @@
 
         .dropdown {
             position: relative;
-            // display: none;
+            display: block;
 
             .dropdown-head {
                 width: 100px;
@@ -179,8 +179,38 @@
         height: 92vh;
         width: auto;
 
+        img {
+            margin-top: 28px;
+            margin-bottom: 12px;
+        }
+
         .aside-item {
             padding-left: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 28px;
+
+            img {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+
+            div {
+                width: 60%;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 2px solid transparent;
+                margin-right: 0px;
+                cursor: pointer;
+                background-image: $rainbow;
+                background-clip: padding-box, border-box;
+                background-origin: border-box;
+
+
+            }
 
         }
 
@@ -216,18 +246,16 @@
 
 @media (max-width: $medium-screen) {
     .home-section {
+        width: 90%;
+        background-color: #000000;
+        margin-right: 12px;
 
-        .dropdown>* {
-            display: block;
-        }
 
         .nav>* {
             display: none;
         }
 
-        .add-btn {
-            margin-right: 12px;
-        }
+
 
     }
 }
@@ -248,5 +276,19 @@
     #home {
         overflow: hidden;
         height: 85vh;
+
+        .home-section {
+
+            .dropdown {
+                display: none;
+
+                
+            }
+
+
+            .add-btn {
+                margin-right: 0;
+            }
+        }
     }
 }

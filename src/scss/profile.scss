@@ -18,7 +18,7 @@
 
     .profile-body {
         position: relative;
-        top: 1rem;
+        top: 2rem;
         display: flex;
       
 
@@ -56,18 +56,20 @@
 
     .section {
         width: 280px;
-        padding: 3rem 1rem 2rem 1rem;
+        padding: 0rem 1rem 2rem 1rem;
         background-color: #232323b4;
         border-radius: $border-radius;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
+        h1 {
+            text-align: center;
+        }
         .input-field {
             width: 100%;
 
-            textarea {
+            input {
                 width: 85%;
                 height: 30px;
             }
