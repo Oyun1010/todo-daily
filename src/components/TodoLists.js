@@ -41,10 +41,12 @@ export const TodoLists = ({ filter, isUpdate }) => {
 
 
     let today = data && data.filter((e) => {
-        const sdate = new Date(e.start_date).getTime();
-        const edate = new Date(e.end_date).getTime();
 
-        if (sdate >= currentDate && edate < currentDate) {
+        const sdate = new Date(e.start_date).getDay();
+        const edate = new Date(e.end_date).getDay();
+        // console.log("S: ", sdate, "E:", edate);
+        // console.log("NOW: ", now.getDay());
+        if (sdate === 0 && edate === 0) {
             return e;
         }
     });
@@ -53,14 +55,21 @@ export const TodoLists = ({ filter, isUpdate }) => {
 
         const sdate = new Date(e.start_date).getTime();
         const edate = new Date(e.end_date).getTime();
-        if (edate == null) {
-            if (sdate < currentDate) {
+        const sday = new Date(e.start_date).getDay();
+        const eday = new Date(e.end_date).getDay();
+        // console.log("S: ", sdate, "E:", edate);
+        // console.log("NOW: ", now.getDay());
+        if (sday !== 0 && eday !== 0) {
+            if (edate < currentDate) {
                 return e;
             }
         }
-        if (edate < currentDate) {
-            return e;
-        }
+        // if (edate == null) {
+        //     if (sdate < currentDate) {
+        //         return e;
+        //     }
+        // }
+
     });
 
     let upcoming = data && data.filter((e) => {
