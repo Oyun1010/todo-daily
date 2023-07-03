@@ -23,7 +23,11 @@ const Login = () => {
                         login(credentialResponse.credential).then((val) => {
                             if (val === "logged") {
                                 toastMessage('🦄 Login Success!');
-                                navigate("/home");
+                                setTimeout(() => {
+                                  
+                                      navigate("/home");
+                                }, 500);
+                              
                             }
                             else toastMessage('🦄 Incorrect username or email.!');
                         })
